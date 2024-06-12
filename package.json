@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run build-service-worker && next build",
-    "build-service-worker": "npx esbuild service-workers/firebase-sw.js --bundle --outfile=public/firebase-sw.js",
+    "build-service-worker": "npx esbuild service-workers/firebase-auth-service-worker.js --bundle --outfile=public/firebase-auth-service-worker.js",
     "start": "next start",
     "lint": "next lint"
   },

@@ -36,4 +36,7 @@ yarn-error.log*
 next-env.d.ts
 
 # build service worker
-/public/firebase-sw*
+/public/firebase-auth-service-worker*
+
+# temp remove after
+lib/firebase/config.ts
