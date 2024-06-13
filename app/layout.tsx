@@ -23,7 +23,6 @@ export default async function RootLayout({
 }>) {
   const { currentUser } = await getAuthenticatedAppForUser();
 
-  console.log(`current user from global layout: ${currentUser}`);
   return (
     <html lang="en">
       <body
@@ -33,7 +32,7 @@ export default async function RootLayout({
         )}
       >
         <FirebaseAuthProvider
-          initialUser={currentUser}
+          initialUser={JSON.parse(JSON.stringify(currentUser))}
           LoaderComponent={<LoaderComponent />}
         >
           {children}

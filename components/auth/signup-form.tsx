@@ -34,7 +34,7 @@ export function SignUpForm() {
     setLoading(true);
     await signUpWithEmail(values.email, values.password);
     setLoading(false);
-    router.refresh();
+    router.push("/");
   }
 
   return (

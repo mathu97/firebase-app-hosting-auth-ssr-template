@@ -19,7 +19,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export function LoginForm() {
-  console.log("Entrs login form");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
@@ -34,7 +33,7 @@ export function LoginForm() {
     setLoading(true);
     await signInWithEmail(values.email, values.password);
     setLoading(false);
-    router.refresh();
+    router.push("/");
   }
 
   return (

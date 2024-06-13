@@ -8,10 +8,8 @@ export default async function Layout({
 }>) {
   const { currentUser } = await getAuthenticatedAppForUser();
 
-  console.log(`current auth from auth layout: ${currentUser}`);
-
   if (currentUser) {
-    return redirect("/");
+    redirect("/");
   }
 
   return (

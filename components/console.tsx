@@ -7,7 +7,6 @@ export function Console() {
   return (
     <Button
       onClick={() => {
-        console.log("Enters sign out");
         signOut();
       }}
     >

@@ -21,16 +21,13 @@ export function FirebaseAuthProvider({
 
   useEffect(() => {
     if (!user && !pathname.startsWith("/auth/")) {
-      console.log("Pushing login rotue");
       router.push("/auth/login");
     }
   }, []);
 
   if (!user && !pathname.startsWith("/auth/")) {
-    console.log("Rendering loader");
     return LoaderComponent;
   }
 
-  console.log("Rendering child");
   return <div>{children}</div>;
 }
