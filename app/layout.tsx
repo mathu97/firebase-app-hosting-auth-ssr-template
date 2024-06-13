@@ -5,6 +5,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { getAuthenticatedAppForUser } from "@/lib/firebase/server/app";
 import { FirebaseAuthProvider } from "@/lib/firebase/client/components/auth-provider";
+import { LoaderComponent } from "@/components/loader";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -40,8 +41,4 @@ export default async function RootLayout({
       </body>
     </html>
   );
-}
-
-export function LoaderComponent() {
-  return <div>Loading ...</div>;
 }
