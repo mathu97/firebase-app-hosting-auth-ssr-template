@@ -36,7 +36,9 @@ export default async function RootLayout({
           initialUser={JSON.parse(JSON.stringify(currentUser))}
           LoaderComponent={<LoaderComponent />}
         >
-          {children}
+          <div className="flex min-h-screen flex-col items-center justify-center">
+            {children}
+          </div>
         </FirebaseAuthProvider>
       </body>
     </html>
