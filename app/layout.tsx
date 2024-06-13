@@ -5,6 +5,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { getAuthenticatedAppForUser } from "@/lib/firebase/server/app";
 import { FirebaseAuthProvider } from "@/lib/firebase/client/components/auth-provider";
+import { LoaderComponent } from "@/components/loader";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -35,13 +36,11 @@ export default async function RootLayout({
           initialUser={JSON.parse(JSON.stringify(currentUser))}
           LoaderComponent={<LoaderComponent />}
         >
-          {children}
+          <div className="flex min-h-screen flex-col items-center justify-center">
+            {children}
+          </div>
         </FirebaseAuthProvider>
       </body>
     </html>
   );
-}
-
-export function LoaderComponent() {
-  return <div>Loading ...</div>;
 }

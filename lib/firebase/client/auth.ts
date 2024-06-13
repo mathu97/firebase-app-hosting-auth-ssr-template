@@ -40,7 +40,7 @@ export async function signUpWithEmail(email: string, password: string) {
   }
 }
 
-export async function signOut() {
+export async function logout() {
   try {
     return auth.signOut();
   } catch (error) {
