@@ -23,6 +23,7 @@ export default async function RootLayout({
 }>) {
   const { currentUser } = await getAuthenticatedAppForUser();
 
+  console.log(`current user from global layout: ${currentUser}`);
   return (
     <html lang="en">
       <body

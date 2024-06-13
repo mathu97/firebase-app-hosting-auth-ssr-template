@@ -7,6 +7,7 @@ import { onAuthStateChanged } from "./auth";
 import { User } from "firebase/auth";
 
 export function useUserSession(initialUser: User | null) {
+  console.log("Enters useUserSession");
   const [user, setUser] = useState(initialUser);
   const router = useRouter();
 

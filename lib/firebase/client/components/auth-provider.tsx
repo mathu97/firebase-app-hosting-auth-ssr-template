@@ -3,7 +3,7 @@
 import { User } from "firebase/auth";
 import { useUserSession } from "../use-user";
 import { useRouter, usePathname } from "next/navigation";
-import { useEffect, ComponentType } from "react";
+import { useEffect } from "react";
 
 interface FirebaseAuthProviderProps {
   initialUser: User | null;
@@ -17,17 +17,20 @@ export function FirebaseAuthProvider({
 }: FirebaseAuthProviderProps) {
   const router = useRouter();
   const user = useUserSession(initialUser);
+  const pathname = usePathname();
 
   useEffect(() => {
-    if (!user) {
-      router.push("/login");
+    if (!user && !pathname.startsWith("/auth/")) {
+      console.log("Pushing login rotue");
+      router.push("/auth/login");
     }
-  }, [user]);
+  }, []);
 
-  const pathname = usePathname();
-  if (!user && pathname !== "/login") {
+  if (!user && !pathname.startsWith("/auth/")) {
+    console.log("Rendering loader");
     return LoaderComponent;
   }
 
+  console.log("Rendering child");
   return <div>{children}</div>;
 }
