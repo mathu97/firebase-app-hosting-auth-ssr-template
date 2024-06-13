@@ -32,7 +32,7 @@ export default async function RootLayout({
         )}
       >
         <FirebaseAuthProvider
-          initialUser={currentUser}
+          initialUser={JSON.parse(JSON.stringify(currentUser))}
           LoaderComponent={<LoaderComponent />}
         >
           {children}

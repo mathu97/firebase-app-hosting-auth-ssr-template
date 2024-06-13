@@ -4,6 +4,8 @@ import {
   onAuthStateChanged as _onAuthStateChanged,
   NextOrObserver,
   User,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
 } from "firebase/auth";
 
 import { auth } from "@/lib/firebase/client/app";
@@ -19,6 +21,22 @@ export async function signInWithGoogle() {
     await signInWithPopup(auth, provider);
   } catch (error) {
     console.error("Error signing in with Google", error);
+  }
+}
+
+export async function signInWithEmail(email: string, password: string) {
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+  } catch (error) {
+    console.error("Error signing in with email and password", error);
+  }
+}
+
+export async function signUpWithEmail(email: string, password: string) {
+  try {
+    await createUserWithEmailAndPassword(auth, email, password);
+  } catch (error) {
+    console.error("Error signing up with email and password", error);
   }
 }
 
